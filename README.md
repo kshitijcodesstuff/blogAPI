@@ -11,7 +11,7 @@ This repository houses the backend code for a lightweight, user-friendly blog pl
 1. Clone the project
  
    ```
-   git clone 
+   git clone https://github.com/Ayine-nongre/Blog-API.git
    ```
 2. Change to project directory
 
