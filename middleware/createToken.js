@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser"
 dotenv.config()
 
 export const createToken = (user, res, statusCode) => {
-    const token = jwt.sign({ email: user.email, role: user.role }, process.env.PRIVATEKEY)
+    const token = jwt.sign({ id: user.id, role: user.role }, process.env.PRIVATEKEY)
 
     res.cookie('Bearer', token, {
         httpOnly: true,
@@ -28,7 +28,7 @@ export const createToken = (user, res, statusCode) => {
     }
 }
 
-export const verifyToken = (req, res) => {
+export const verifyToken = (req, res, next) => {
     const token = req.cookies.Bearer;
 
     const decoded = jwt.verify(token, process.env.PRIVATEKEY, (err, acc) => {
