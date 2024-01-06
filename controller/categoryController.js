@@ -8,7 +8,7 @@ export const createCategory = async (req, res) => {
     created = created.split("T")[0]
 
     const category = await Category.create({
-        name: name,
+        name: name.toLowerCase(),
         description: description
     }).then((category) => {
         res.status(201).json({

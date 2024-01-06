@@ -33,7 +33,10 @@ export const verifyToken = (req, res, next) => {
 
     const decoded = jwt.verify(token, process.env.PRIVATEKEY, (err, acc) => {
         if (err) {
-             return console.log("Unauthorised access");
+            res.status(401).json({
+                status: "Failed",
+                message: "User is not logged in"
+            })
         }
         req.user = acc;
         next()

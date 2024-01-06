@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS Categories(
 DROP TABLE `Posts`;
 CREATE TABLE IF NOT EXISTS Posts(
     id VARCHAR(60) PRIMARY KEY,
+    title VARCHAR(255),
     body TEXT NOT NULL,
     author_id VARCHAR(60) NOT NULL,
     category_id VARCHAR(60) NOT NULL,

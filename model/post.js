@@ -10,7 +10,8 @@ export const Post = db.define(
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             allowNull: false,
-            unique: true
+            unique: true,
+            primaryKey: true
         },
         title: {
             type: DataTypes.STRING,
