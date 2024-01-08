@@ -1,8 +1,12 @@
 # BLOG API 
-This repository houses the backend code for a lightweight, user-friendly blog platform built with NodeJS and express.
+This repository houses the backend code for a lightweight, user-friendly blog platform built with NodeJS and express.This project allows users to:<br>
+ &emsp; ⚪ <strong>Create and manage blog posts:</strong> Write, edit, add titles, bodies, and categories.<br>
+ &emsp; ⚪ <strong>User roles and permissions:</strong> Differentiate between admins, authors, and readers with varying access levels.
+
 
 ## FEATURES IMPLEMENTED
-✔️ User signup and login with secure hashing and jwt authentication
+✔️ User signup and login with secure hashing and jwt authentication<br>
+✔️ Users with Author permissions can create posts
 
 ## TECHNOLOGIES USED
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)  ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
