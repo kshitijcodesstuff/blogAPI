@@ -52,3 +52,15 @@ export const createPost = async (req, res) => {
         })
     })
 }
+
+export const updatePost = async (req, res) => {
+    const { title, body, category } = req.body
+
+    if (user.role !== "author") {
+        return res.json({
+            status: "Error",
+            message: "Only users with author privileges can make posts"
+        })
+    }
+
+}
