@@ -22,7 +22,19 @@ export const createCategory = async (req, res) => {
             status: "Failed",
             message: "Error creating category"
         })
-    })
+    }) 
+}
 
-    
+const deleteCategory = async (req, res) => {
+    const { name } = req.body
+
+    const category = await Category.findOne({ where: { name: name }})
+    if (!category) return res.status(404).json({ message: "Category doesn't exist"})
+
+    await category.destroy().then(() => {
+        res.status(200).json({
+            status: "Success",
+            message: `${name} category has been deleted`
+        })
+    })
 }

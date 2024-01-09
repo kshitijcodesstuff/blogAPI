@@ -2,7 +2,7 @@ import { body, validationResult } from "express-validator";
 import { Category } from "../model/category.js";
 import { validatorResult } from "../middleware/validator.js";
 
-export const categoryValidator = [
+export const createValidator = [
     body('name')
     .notEmpty().withMessage("Category name cannot be empty")
     .custom(async (value) => {
@@ -13,5 +13,11 @@ export const categoryValidator = [
         }
         return value
     }),
+    validatorResult
+]
+
+export const deleteValidator = [
+    body('name')
+    .notEmpty().withMessage("Category name cannot be empty"),
     validatorResult
 ]
