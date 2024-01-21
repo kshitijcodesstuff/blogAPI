@@ -15,7 +15,7 @@ db.authenticate()
 .then(() => console.log("Database connected successfully"))
 .catch((err) => console.log("Unable to connect to database", err))
 
-app.use("/api", authRouter);
+app.use("/api/auth", authRouter);
 app.use("/api", postRouter);
 app.use("/api", categoryRoutes)
 
