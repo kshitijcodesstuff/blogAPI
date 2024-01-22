@@ -6,7 +6,8 @@ This repository houses the backend code for a lightweight, user-friendly blog pl
 
 ## FEATURES IMPLEMENTED
 ✔️ User signup and login with secure hashing and jwt authentication<br>
-✔️ Users with Author permissions can create posts
+✔️ Users with Author permissions can create posts<br>
+✔️ Users with admin permissions can create / delete categories<br>
 
 ## TECHNOLOGIES USED
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)  ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
