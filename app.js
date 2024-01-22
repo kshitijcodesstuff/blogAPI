@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser'
 import { authRouter } from './routes/authroutes.js'
 import { postRouter } from './routes/postroutes.js'
 import { categoryRoutes } from './routes/categoryroutes.js'
+import { commentRoutes } from './routes/commentroutes.js'
 
 const app = express()
 
@@ -17,7 +18,8 @@ db.authenticate()
 
 app.use("/api/auth", authRouter);
 app.use("/api", postRouter);
-app.use("/api", categoryRoutes)
+app.use("/api", categoryRoutes);
+app.use("/api/post", commentRoutes);
 
 app.listen(process.env.PORT || 3000, () => {
     console.log("Server is running")

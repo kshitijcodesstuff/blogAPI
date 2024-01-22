@@ -38,3 +38,16 @@ CREATE TABLE IF NOT EXISTS Posts(
     FOREIGN KEY (author_id) REFERENCES Users (id),
     FOREIGN KEY (category_id) REFERENCES Categories (id)
 );
+
+DROP TABLE `Comments`;
+CREATE TABLE IF NOT EXISTS Comments(
+    id VARCHAR(60) PRIMARY KEY,
+    post_id VARCHAR(60) NOT NULL,
+    user_id VARCHAR(60) NOT NULL,
+    content TEXT,
+    created_at DATE NOT NULL,
+    updated_at DATE NOT NULL,
+    likes_count INT,
+    FOREIGN KEY (post_id) REFERENCES Posts (id),
+    FOREIGN KEY (user_id) REFERENCES Users (id)
+);
