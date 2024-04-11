@@ -8,15 +8,10 @@
     "test": "mocha"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ayine-nongre/Blog-API.git"
+    "type": "git"
   },
-  "author": "Ayine-nongre",
+  "author": "kshitijcodesstuff",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Ayine-nongre/Blog-API/issues"
-  },
-  "homepage": "https://github.com/Ayine-nongre/Blog-API#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",

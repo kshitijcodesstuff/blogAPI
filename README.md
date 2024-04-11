@@ -32,7 +32,7 @@ Create a ```.env``` file in the project's root directory and define the followin
 ### 3. Run the Server
     
    ```
-   node server.js
+   node app.js
    ```
 
 ## Testing
