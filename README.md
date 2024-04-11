@@ -1,52 +1,104 @@
-# BLOG API 
-This repository houses the backend code for a lightweight, user-friendly blog platform built with NodeJS and express.This project allows users to:<br>
- &emsp; ⚪ <strong>Create and manage blog posts:</strong> Write, edit, add titles, bodies, and categories.<br>
- &emsp; ⚪ <strong>Comment on blog posts:</strong> Leave comments on a post.<br>
- &emsp; ⚪ <strong>User roles and permissions:</strong> Differentiate between admins, authors, and readers with varying access levels.
 
+# BLOG API
 
-## FEATURES IMPLEMENTED
-✔️ User signup and login with secure hashing and jwt authentication<br>
-✔️ Users with Author permissions can create posts<br>
-✔️ Users with admin permissions can create / delete categories<br>
-✔️ Users can comment on a blog posts<br>
+**Powered by ALGO8**
 
-## TECHNOLOGIES USED
-![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)  ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+Welcome to the BLOG API! This project provides a robust backend for managing blog content and interactions.
 
-## GETTING STARTED
-1. Clone the project
- 
-   ```
-   git clone https://github.com/Ayine-nongre/Blog-API.git
-   ```
-2. Change to project directory
+## Getting Started
 
-    ```
-    cd Blog-API/
-    ```
-3. Set up enviroment variables in env file
+### 1. Installation
 
-   ```
-   DB_USER, DB_PASSWD, PRIVATEKEY
-   ```
-4. Install packages used in project
+**Steps:**
 
-   ```
+1. **Install dependencies:**
+
+   ```bash
    npm install
    ```
-5. Start server
 
-    ```
-    nodemon app.js
-    ```
+2. **Set up database:**
 
-## DISCLAIMER
-This project is a basic implementation and lacks some advanced features like search, analytics, or social integrations. Feel free to extend its functionalities and tailor it to your specific needs.
+Create a MySQL database.
+Execute the SQL queries in BlogDB.sql to create the database schema.  
 
-I hope you find this project useful 😄
+### 2. Environment Variables
+Create a ```.env``` file in the project's root directory and define the following variables:
+   ```
+   DB_USER=your_database_username
+   DB_PASSWD=your_database_password
+   PRIVATEKEY=your_private_key 
+   ```
+### 3. Run the Server
+    
+   ```
+   node server.js
+   ```
+
+## Testing
+
+Run tests with:
+
+
+     npm test
+
+## Documentation
+
+API Routes:
+
+### Auth Routes:
+
+```POST /signup:```
+
+Registers a new user with required credentials.
+Validates user data using ```signupValidator```.
+Handled by the signup function in ```authController.js```.
+
+```POST /login:```
+
+Authenticates existing users and generates access tokens.
+Validates login credentials using ```loginValidator```.
+Handled by the login function in ```authController.js```.
+
+### Post Routes:
+
+```POST /write:```
+
+Creates a new blog post.
+Requires a valid access token (```verifyToken middleware```).
+Handled by the createPost function.
+
+```PUT /update:```
+
+Updates an existing blog post.
+Requires authentication (```verifyToken```).
+Handled by the updatePost function.
+
+```DELETE /delete:```
+
+Deletes a specific blog post.
+Requires authentication (```verifyToken```).
+Handled by the deletePost function.
+
+```GET /:```
+
+Lists all available blog posts.
+Requires authentication (```verifyToken```).
+Handled by the listPosts function.
+
+```GET /post:```
+
+Retrieves a single blog post by its ID.
+Requires authentication (```verifyToken```).
+Handled by the readPost function.
+Additional Notes:
+
+All routes are defined within their respective Express router modules (```authRoutes.js``` and ```postRoutes.js```).
+Authentication and validation are applied using middleware functions (```verifyToken```, ```signupValidator```, ```loginValidator```).
+Controller functions (```signup```, ```login```, ```createPost```, etc.) handle the core logic for each route.
 
 
 
 
 
+# blog-api
