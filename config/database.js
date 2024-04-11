@@ -3,6 +3,7 @@ import { Sequelize } from "sequelize";
 
 dotenv.config();
 
+//create database as db
 const db = new Sequelize(
     'blogDB',
     process.env.DB_USER,
@@ -15,3 +16,4 @@ const db = new Sequelize(
 );
 
 export default db;
+
