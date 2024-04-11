@@ -3,16 +3,7 @@ import { User } from "../model/user.js";
 import { validatorResult } from "../middleware/validator.js";
 
 export const signupValidator = [
-    body('username')
-    .notEmpty()
-    .withMessage("Username cannot be empty")
-    .isLength({ min: 3 })
-    .withMessage("Username must be 3 characters or more")
-    .custom(async (username, { req }) => {
-        const user = await User.findOne({ where: { username : username }})
-        if (user)  throw new Error("User with this username already exists")
-        return username
-    }),
+
     body('email')
     .notEmpty()
     .withMessage("Email cannot be empty")
@@ -37,27 +28,11 @@ export const signupValidator = [
         }
         return value;
     }),
-    body('name')
-    .notEmpty()
-    .withMessage("Name cannot be empty")
-    .isLength({ min: 3 })
-    .withMessage("Name must be 3 characters or more long"),
-    body('role')
-    .notEmpty()
-    .withMessage("User must select a role")
-    .custom((role) => {
-        const validRoles = ["author", "reader"]
 
-        if (!validRoles.includes(role)) throw new Error("User roles can only be either author or reader")
-        return role;
-    }),
     validatorResult
 ]
 
 export const loginValidator = [
-    body('username')
-    .notEmpty()
-    .withMessage("Username cannot be empty"),
     body('password')
     .notEmpty()
     .withMessage("Password cannot be empty"),

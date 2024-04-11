@@ -101,4 +101,3 @@ Controller functions (```signup```, ```login```, ```createPost```, etc.) handle 
 
 
 
-# blog-api

@@ -4,7 +4,7 @@ import { createToken } from '../middleware/createToken.js';
 
 //Sign up endpoint data is validated before processing
 export const signup = async (req, res) => {
-    const { username, email, password, confirmPassword, name, role } = req.body
+    const { email, password} = req.body
 
     // user password is encrypted
     const hashedPassword =  await bcrypt.hash(password, 10)
@@ -16,13 +16,10 @@ export const signup = async (req, res) => {
 
     //New user obj is created and send to createToken func to create a token
     const user = await User.create({
-        username: username,
+     
         email: email,
-        password: hashedPassword,
-        name: name,
-        role: role,
-        created_at: created,
-        updated_at: created
+        password: hashedPassword
+
     })
     .then((user) => createToken(user, res, 201) )
     .catch((err) => {
@@ -36,10 +33,10 @@ export const signup = async (req, res) => {
 
 //Log up endpoint data is validated before processing
 export const login = async (req, res) => {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
     //Checks to see if user exists using username
-    const user = await User.findOne({ where: { username: username }});
+    const user = await User.findOne({ where: { email: email }});
     if (!user) return res.status(401).json({ message: "Incorrect email or password" });
 
     // Compares password against encrypted password to see if they match

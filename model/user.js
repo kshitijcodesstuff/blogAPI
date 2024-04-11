@@ -10,11 +10,6 @@ export const User = db.define(
             unique: true,
             primaryKey: true
         },
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
-        },
         email: {
             type: DataTypes.STRING,
             allowNull: false
@@ -23,28 +18,8 @@ export const User = db.define(
             type: DataTypes.STRING,
             allowNull: false
         },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        bio: {
-            type: DataTypes.TEXT
-        },
-        profile_pic: {
-            type: DataTypes.STRING
-        },
-        role: {
-            type: DataTypes.STRING,
-            defaultValue: "reader"
-        },
-        created_at: {
-            type: DataTypes.DATE,
-            allowNull: false
-        },
-        updated_at: {
-            type: DataTypes.DATE,
-            allowNull: false
-        }
+
     },
     { timestamps: false }
 )
+

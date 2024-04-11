@@ -1,13 +1,12 @@
 import jwt from "jsonwebtoken"
 import dotenv from 'dotenv'
-import cookieParser from "cookie-parser"
 
 dotenv.config()
 
 // Create a token using jwt auth
 export const createToken = (user, res, statusCode) => {
     //user id and role is encoded to create the token
-    const token = jwt.sign({ id: user.id, role: user.role }, process.env.PRIVATEKEY)
+    const token = jwt.sign({ id: user.id}, process.env.PRIVATEKEY)
 
     res.cookie('Bearer', token, {
         httpOnly: true,
@@ -23,9 +22,8 @@ export const createToken = (user, res, statusCode) => {
         res.status(statusCode).json({
             status: "Success",
             message: "Signup successful",
-            username: user.username,
             email: user.email,
-            name: user.name
+            
         })
     }
 }

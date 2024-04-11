@@ -1,11 +1,9 @@
 import express from 'express'
-import bodyParser from 'body-parser'
 import db from './config/database.js'
 import cookieParser from 'cookie-parser'
 import { authRouter } from './routes/authroutes.js'
 import { postRouter } from './routes/postroutes.js'
-import { categoryRoutes } from './routes/categoryroutes.js'
-import { commentRoutes } from './routes/commentroutes.js'
+
 
 const app = express()
 
@@ -18,9 +16,7 @@ db.authenticate()
 
 app.use("/api/auth", authRouter);
 app.use("/api", postRouter);
-app.use("/api", categoryRoutes);
-app.use("/api/post", commentRoutes);
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 3001, () => {
     console.log("Server is running")
 })
